@@ -1,4 +1,5 @@
 import express from "express";
+import mongoose from 'mongoose';
 import {
   AlbumRoute,
   ArtistRoute,
@@ -6,6 +7,17 @@ import {
   TrackRoute,
   UserRoute,
 } from "./routes";
+import dotenv from 'dotenv';
+dotenv.config();
+
+
+mongoose.connect(process.env.MONGODB_URL, {
+  useCreateIndex: true,
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+})
+.then(() => console.log('Connect to dabase'))
+.catch((error) => console.log(error));
 
 const app = express();
 
