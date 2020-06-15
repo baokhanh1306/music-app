@@ -1,13 +1,8 @@
 import express from 'express';
 import mongoose from 'mongoose';
-import {
-  AlbumRoute,
-  ArtistRoute,
-  PlaylistRoute,
-  TrackRoute,
-  UserRoute,
-} from './routes';
+import route from './routes';
 import dotenv from 'dotenv';
+import { handleError } from './middlewares/error';
 dotenv.config();
 
 mongoose
@@ -24,11 +19,11 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-app.use('/artists', ArtistRoute);
-app.use('/albums', AlbumRoute);
-app.use('/playlists', PlaylistRoute);
-app.use('/tracks', TrackRoute);
-app.use('/users', UserRoute);
+app.use('/api', route);
+
+app.use((err, req, res, next) => {
+  handleError(err,res);
+});
 
 const port = process.env.port || 5000;
 app.listen(port, () => console.log(`App listen on port ${port}`));

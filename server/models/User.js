@@ -2,6 +2,7 @@ import mongoose from 'mongoose';
 import validator from 'validator';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
+import { ErrorHandler } from '../middlewares/error';
 
 const userSchema = mongoose.Schema({
     email: {
@@ -45,11 +46,11 @@ userSchema.methods.generateToken = async function() {
 userSchema.statics.findByCredentials = async function(email, password){
     const user = await this.findOne({ email });
     if (!user) {
-        throw new Error({ error: 'Invalid login credentials' });
+        throw new ErrorHandler(400, 'Invalid login credentials');
     }
     const isPasswordMatch = await bcrypt.compare(password, user.password);
     if (!isPasswordMatch) {
-        throw new Error({ error: 'Invalid login credentials' });
+        throw new ErrorHandler(400, 'Invalid login credentials');
     }
     return user;
 }
