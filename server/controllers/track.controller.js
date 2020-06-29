@@ -5,12 +5,13 @@ const getAllTracks = catchAsync(async (req, res, next) => {
   const page = parseInt(req.query.page) || 1;
   const pageSize = parseInt(req.query.pageSize) || 10;
   const tracks = await Track.find()
-    .sort({ name: -1 })
+    .sort({ name: 1 })
     .limit(pageSize)
     .skip(pageSize * (page - 1));
   const total = await Track.countDocuments({});
   res.json({
     total,
+    totalPage: Math.ceil(total/pageSize),
     page,
     pageSize,
     tracks,
@@ -26,7 +27,7 @@ const getTrackById = catchAsync(async (req, res, next) => {
 const createTrack = catchAsync(async (req, res, next) => {
   const track = new Track(req.body);
   await track.save();
-  res.json({ message: 'Create track successfuly' });
+  res.json({ message: 'Create track successfully' });
 });
 
 export default {

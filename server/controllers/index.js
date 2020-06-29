@@ -1,13 +1,15 @@
-import AlbumController from './AlbumController';
-import ArtistController from './ArtistController';
-import PlaylistController from './PlaylistController';
-import TrackController from './TrackController';
-import UserController from './UserController';
+import AlbumController from './album.controller';
+import ArtistController from './artist.controller';
+import PlaylistController from './playlist.controller';
+import TrackController from './track.controller';
+import UserController from './user.controller';
+import GenreController from './genre.controller';
 
 export {
     AlbumController,
     ArtistController,
     PlaylistController,
     TrackController,
-    UserController
-}
+    UserController,
+    GenreController
+};
