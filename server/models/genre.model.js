@@ -12,4 +12,5 @@ const genreSchema = new mongoose.Schema({
     picture_xl: String
 });
 
+
 export default mongoose.model('Genre', genreSchema);

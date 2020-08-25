@@ -4,8 +4,7 @@ import { Artist, Album } from '.';
 const trackSchema = new mongoose.Schema({
     title: {
         type: String,
-        required: true,
-        index: true
+        required: true
     },
     artists: [{
         type: mongoose.Schema.Types.ObjectId,
@@ -49,6 +48,6 @@ trackSchema.pre('save', async function(next) {
     next();
 });
 
-
+trackSchema.index({ title: 'text' });
 
 export default mongoose.model('Track', trackSchema);

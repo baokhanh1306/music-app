@@ -29,6 +29,8 @@ export default createGlobalStyle`
         --color-background: ${props => props.theme.colors.background};
         --color-warning: ${props => props.theme.colors.warning};
         --color-lighter: ${props => props.theme.colors.lighter};
+        --shadow-color: rgba(0, 0, 0, 0.2);
+        --shadow-color-dark: rgba(0, 0, 0, 0.25);
         @media ${props => props.theme.mediaQueries.largest} {
             font-size: 57.5%;
         }

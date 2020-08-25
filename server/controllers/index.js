@@ -4,6 +4,7 @@ import PlaylistController from './playlist.controller';
 import TrackController from './track.controller';
 import UserController from './user.controller';
 import GenreController from './genre.controller';
+import SearchController from './search.controller';
 
 export {
     AlbumController,
@@ -11,5 +12,6 @@ export {
     PlaylistController,
     TrackController,
     UserController,
-    GenreController
+    GenreController,
+    SearchController
 };

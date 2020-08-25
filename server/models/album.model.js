@@ -16,8 +16,7 @@ const albumSchema = new mongoose.Schema({
     }],
     title: {
         type: String,
-        required: true,
-        index: true
+        required: true
     },
     release_date: {
         type: String
@@ -56,5 +55,7 @@ albumSchema.pre('save', async function(next) {
     });
     next();
 });
+
+albumSchema.index({title: 'text'});
 
 export default mongoose.model('Album', albumSchema);

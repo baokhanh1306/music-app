@@ -14,7 +14,11 @@ const playlistSchema = new mongoose.Schema({
             type: mongoose.Schema.Types.ObjectId,
             ref: 'Track'
         }
-    ]
+    ],
+    isFav: {
+        type: Boolean,
+        default: false
+    }
 }, { timestamps: true });
 
 export default mongoose.model('Playlist', playlistSchema);

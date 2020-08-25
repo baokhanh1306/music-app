@@ -1,0 +1,3 @@
+export const ARTIST_LOADING = 'ARTIST_LOADING';
+export const ARTIST_FINISHED = 'ARTIST_FINISHED';
+export const GET_ARTISTS = 'GET_ARTISTS';

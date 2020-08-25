@@ -1,0 +1,1 @@
+export const PLAY_NEW_PLAYLIST = 'PLAY_NEW_PLAYLIST';

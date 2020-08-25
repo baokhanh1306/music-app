@@ -1,0 +1,2 @@
+export const SELECTED_MENU = "SELECTED_MENU";
+export const REMOVE_MENU = "REMOVE_MENU";
